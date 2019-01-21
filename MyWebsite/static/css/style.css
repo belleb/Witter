@@ -1,0 +1,426 @@
+ 
+/* CSS reset
+===================================== */
+
+html, body, div, span
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+
+/* General stuff
+===================================== */
+
+/*  Causes the vertical scrollbar to always be present. */
+html
+{
+  overflow-y: scroll;
+}
+
+
+body
+{
+  font-family: "Lora", serif;
+  font-size: 14px;
+  color: #082d03;
+  line-height: 1.6;
+}
+
+h1, h2
+{
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+h2
+{
+  color: #104f07;
+}
+
+/*  Makes all links maroon, and displayed without an underline.  */
+a
+{
+  color: #189907;
+  text-decoration: none;
+}
+
+/*  When links are hovered over, change shade of maroon, and add an underline.  */
+a:hover
+{
+  color: #082d03;
+  text-decoration: underline;
+}
+
+blockquote
+{
+  font-style: italic;
+}
+
+
+
+/* Title Bar
+===================================== */
+
+#big_box
+{
+	width: 50%;
+	margin:auto;
+}
+@media (max-width: 600px)
+{
+  #big_box
+  {
+    width: 90%;
+  }
+}
+
+
+h1
+{
+  margin: 0;
+  background-color: #333333;
+}
+
+h1 a
+{
+  display: block;
+  padding: 30px 20px;
+  text-align: center;
+
+  /* These are all various ways of setting the background color, */
+  /* designed so that at least one will work on any browser */
+  background-color: #104f07;
+
+}
+
+h1 a, h1 a:hover
+{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#title-left
+{
+  padding: 11px 0;
+}
+
+#title-right img
+{
+  height: auto; 
+  width: auto;
+  vertical-align: middle;
+}
+
+
+
+
+/* Navigation Bar
+===================================== */
+
+/* Make all text in navigation bar unselectable. */
+#navul
+{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#navul, #navul ul
+{
+  margin: 0;
+  padding: 0;
+  border: 1px solid #d6d6d6;
+  border-top-width: 0;
+  background-color: #f2f2f2;
+  list-style: none;
+}
+
+#navul li
+{
+  border-top: 1px solid #d6d6d6;
+}
+
+#navul a
+{
+  display: block;
+  padding: 5px 10px;
+  color: #104f07;
+  cursor: pointer;
+}
+
+/* Hovered Main Menu Elements 
+------------------------------------- */
+#navul li.open, #navul li.closed:hover
+{
+  background-color: #104f07;
+}
+
+#navul li.open a, #navul li.closed:hover a
+{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Sub Menu Elements
+------------------------------------- */
+#navul li.closed ul
+{
+  display: none;
+}
+
+#navul li.open ul
+{
+  display: block;
+  padding-left: 15px;
+  font-size: 13px;
+  background-color: #f2f2f2;
+}
+
+#navul li.open ul, #navul li.open ul li
+{
+  border: 0;
+}
+
+#navul li.open ul a
+{
+  color: #6d6d6d;
+}
+
+#navul li.open ul a:hover
+{
+  text-decoration: underline;
+}
+
+
+
+
+/* Footer
+===================================== */
+
+footer
+{
+  background-color: #104f07;
+}
+
+footer a
+{
+  color: #d6d6d6;
+}
+
+footer a:hover
+{
+  color: #ffffff;
+}
+
+#footer-wrapper
+{
+  padding: 20px 40px 80px;
+  color: #d6d6d6;
+}
+
+
+
+
+/* Main Positioning
+===================================== */
+
+main
+{
+  padding: 0 30px 50px;
+  min-height: 675px;
+}
+@media (max-width: 600px)
+{
+main{
+    padding: 5px 0 0;
+    min-height: 300px;	
+	 }
+}
+
+#inner_box
+{
+	padding-left: 25%;
+}
+@media (max-width: 600px)
+{
+  #inner_box
+  {
+    padding-left: 0%;
+  }
+}
+
+
+/* Responsive Design
+===================================== */
+
+nav, #footer-left, #footer-right, #title-left, #title-right
+{
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+h1
+{
+  font-size: 24px;
+}
+
+#title-left, #title-right img
+{
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#footer-left, #footer-right, #title-left, #title-right
+{
+  text-align: center;
+}
+
+@media (max-width: 600px)
+{
+  #searchbox, #social
+  {
+    padding: 0 30px;
+  }
+  
+  #social
+  {
+    text-align: center;
+  }
+  
+  #social h2
+  {
+    text-align: left;
+  }
+}
+
+
+@media (min-width: 600px)
+{
+
+  h1
+  {
+    font-size: 32px;
+  }
+
+ #wrapper, #footer-wrapper, #title-wrapper
+  {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  nav
+  {
+    margin-top: 0px;
+  }
+
+  nav.normal
+  {
+    width: 25%;
+  }
+  
+  nav.expanded
+  {
+    display: none;
+  }
+  
+  #footer-left, #footer-right, #title-left, #title-right
+  {
+    width: 50%;
+    float: left;
+  }
+
+  #footer-left, #title-left
+  {
+    text-align: left;
+  }
+
+  #footer-right, #title-right
+  {
+    text-align: right;
+  }
+}
+
+/* "Clears" after floats so that the appropriate amount of space is taken up */
+#wrapper:after, #footer-wrapper:after, #title-wrapper:after
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Small desktop */
+@media only screen and (max-width: 979px)
+{
+  #title-right img
+  {
+    width: 228px;
+    height: 46px;
+  }
+  
+  #title-left
+  {
+    font-size: 24px;
+  }
+}
+
+/* Medium desktop */
+@media only screen and (min-width: 980px)
+{
+  #title-right img
+  {
+    width: 300px;
+    height: 60px;
+  }
+
+  #title-left
+  {
+    font-size: 32px;
+  }
+
+  
+}
+
+/* Large desktop */
+@media only screen and (min-width: 1250px)
+{
+  
+}
+
+
+/* Spacing Between Sections
+===================================== */
+
+h2, h3
+{
+  margin-top: 30px;
+}
+
+h2:first-of-type, h3:first-of-type
+{
+  margin-top: 20px;
+}
+
+h4
+{
+  margin-top: 20px;
+}
+
+h4:first-of-type
+{
+  margin-top: 15px;
+}
+
+main li
+{
+  margin: 10px auto;
+}

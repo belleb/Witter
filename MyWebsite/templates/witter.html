@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Witter</title>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <style>
+  html
+  {
+    background-color: #eeeeee;
+  }
+  body
+  {
+    color: #115533;
+    font-family: "Varela Round", sans-serif; 
+    margin: 50px auto;
+    width: 800px;
+  }
+  form
+  {
+    margin: 20px;
+  }
+  section
+  {
+    margin: 20px;
+  }
+  
+  h1
+  {
+    font-size: 40pt;
+    text-align: center;
+    color: #55cc88;
+    
+  }
+  h2
+  {
+    color: #339955;
+  }
+  h3
+  {
+    
+    text-align: center;
+    color: #55cc88;
+    
+  }
+  h3 a
+  {
+    color: #55cc88;
+    text-decoration: none;
+  }
+  .display
+  {
+    width: 95%;
+    margin: 0 auto;
+    font-size:10pt;
+    height:50px;
+    padding:7px;
+    border-radius:10px;
+    word-break: break-all;
+    border: 1px solid #cccccc;
+    background-color: #f6f6f6;
+  }
+  .row:after
+  {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column
+  {
+    float: left;
+    width: 50%;
+    min-width: 300px;
+  }
+  </style>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+<body>
+    <header><h1>Witter</h1><h3>By <a href="https://isabelleal.org">Isabel Leal</a></h3></header>
+    <div class="row">
+    <div class="column">
+    <h2> Encrypt your message here </h2>
+    <form action="" method="post">
+      Type your message here:<br>
+      <textarea name="message" class="display" maxlength="140" placeholder = "Limit 140 characters (ASCII only)"></textarea><br>
+      <input type="submit" value="Encrypt" style = "border-radius:7px; color:#115533;">
+    </form>
+    
+    <section>
+    Your encrypted message is here:
+    <div class="display" style = "height: 150px;">
+    {{ s }}
+    </div>
+    </section>
+    
+    <section>
+    The key to decrypt is here:
+    <div class="display" style = "height: 30px;">
+    {{ k }}
+    </div>
+    </section>
+    </div>
+    
+    <div class = "column">
+    <h2> Decrypt your message here</h2>
+    <form action="" method="post">
+      Encrypted message:<br>
+      <textarea name="encrypted" class="display" maxlength="500"></textarea><br>
+      Key to decrypt:<br>
+      <textarea name="key" class="display" maxlength="500"></textarea><br>
+      <input type="submit" value="Decrypt" style = "border-radius:7px; color:#115533;">
+    </form>
+    
+    <section>
+    Your decrypted message is here:
+    <div class="display" style = "height: 80px;">
+    {{ decrypted }}
+    </div>
+    </section>
+    </div>
+    </div>
+</body>
+</html>

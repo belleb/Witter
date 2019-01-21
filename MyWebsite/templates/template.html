@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71038780-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-71038780-2');
+  </script>
+
+  <!-- Basic Information
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="author" content="Isabel Leal">
+
+  <!-- Responsive Design
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font 
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<!-- Big box --> 
+<div id="big_box">
+
+<!-- Heading
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<h1>
+    <a href="{{ url_for('home') }}">
+      <div id="title-wrapper">
+        <div id="title-left">Isabel Leal</div>
+      </div>
+    </a>
+ </h1>
+
+<div id="wrapper">
+<!-- Navigation Menu
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<nav class="normal">
+	<ul id="navul">
+   	<li id="home" class="closed">
+      	<a href="{{ url_for('home') }}">Home</a>
+      </li>
+      <li id="Projects" class="closed">
+      	<a href="{{ url_for('projects') }}">Projects</a>
+      </li>
+    </ul>
+</nav>
+
+
+
+<!-- Main Content
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<main class="normal">
+
+<div id="inner_box">
+
+    {% block content %}
+    {% endblock %}
+    
+</div>
+</main>
+
+</div>
+
+<!-- Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<footer>
+	<div id="footer-wrapper">
+   <div id="footer-left">
+   	© 2019 <a href="{{ url_for('home') }}">Isabel Leal</a><br>
+   </div>
+   <div id="footer-right">
+   	Last updated Jan 2019<br>
+   	<a href="mailto:isabel@isabelleal.org">Contact</a>
+   </div>
+   </div>
+</footer>
+
+</div>
+</body>
+</html>				
