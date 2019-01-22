@@ -68,7 +68,7 @@ def create_key(size, pre_key_len, salt_len):
     #adapts pre_key to actual key that has the same size as the message
     key = []
     for i in range(size):
-        key.append(pre_key[i % pre_key_len]+(i % salt_len)+sum(pre_key))
+        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(sum(pre_key)%salt_len))
     
     return key, pre_key
     
@@ -86,7 +86,7 @@ def adapt_key(size, pre_key_len, salt_len, key):
     #constructs actual key that has the same size as the message
     key = []
     for i in range(size):
-        key.append(pre_key[i % pre_key_len]+(i % salt_len)+sum(pre_key))
+        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(sum(pre_key)%salt_len))
     
     return key    
 
