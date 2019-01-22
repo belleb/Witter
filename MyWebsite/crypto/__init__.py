@@ -16,9 +16,11 @@ rabbit_shift shifts the order of the characters in the encrypted message by a co
 block_len = 19
 pre_key_len = 20
 salt_len = 29
-rabbit_shift = 127885
+rabbit_shift = 127744 #885
 min_pre_key_len = 8
-    
+#lower and upper bounds for prime p
+lb_p = 350
+ub_p = 1235 #1585
 
 #transforms an int array into a string by using chr
 def stringfy(vector):
@@ -30,7 +32,7 @@ def stringfy(vector):
 #tests if the user inserted only allowed characters in their message
 def allowed_letters(s):
     for letter in s:
-        if ord(letter)>=350:
+        if ord(letter)>=lb_p:
             return False
     return True
     
@@ -107,7 +109,7 @@ def encrypt(s, key=""):
         user_key = "Don't forget your chosen key " + chr(128578)
         
     #generated random prime p. We will use p-typical Witt vectors 
-    p = sympy.randprime(350,1585)
+    p = sympy.randprime(lb_p,ub_p)
 
 
     #encrypts message
@@ -134,7 +136,7 @@ def find_prime(s):
     if p > 127394:
         p -= 127394
     
-    if p in range(350,1585):
+    if p in range(lb_p,ub_p): 
         return p
     else:
         return None
