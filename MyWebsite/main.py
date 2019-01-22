@@ -22,7 +22,9 @@ def witter():
         return render_template("witter.html")
     
     s, k, decrypted = "", "", ""
-    if "message" in request.form:
+    if "message" in request.form and "user_key" in request.form:
+        s, k = encrypt(request.form["message"],request.form["user_key"])
+    elif "message" in request.form:
         s, k = encrypt(request.form["message"])
     
     if "key" in request.form and "encrypted" in request.form:

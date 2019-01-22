@@ -79,6 +79,7 @@ def adapt_key(size, pre_key_len, salt_len, key):
     
     i, l = len(pre_key)-1, len(pre_key)
     while i < pre_key_len - 1:
+        i += 1
         pre_key.append(pre_key[i%l] + (i% salt_len))
     
     #constructs actual key that has the same size as the message
