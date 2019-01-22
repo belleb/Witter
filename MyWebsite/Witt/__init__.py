@@ -1,3 +1,11 @@
+"""
+Here we construct the class WittVector, which simulates the structure of p-typical Witt vectors. 
+
+Note: add Witt vector multiplication and division
+"""
+
+
+#since powers of the prime p are used repeatedly, we use some memoization 
 powers_of_p = {}
 def p_pow(p, i):
 	if (p,i) not in powers_of_p:
@@ -36,7 +44,12 @@ class WittVector:
 	def __sub__(self, w):
 	    return WittVector((self+(-w)).vector,self.p)
 	
-		
+	
+	
+	"""
+	Auxiliary functions used to define Witt vector addition and subtraction
+	"""	
+	#recursive coordinates for the sum of Witt vectors self and w 
 	def S(self,n,w):
 		p = self.p		
 		if n == 0:
@@ -48,6 +61,9 @@ class WittVector:
 		
 		return previous_S
 		  
+    #ghost homomorphism
+    #it is important to compute powers of x mod p**(n+2) to reduce time complexity. The computations remains correct since division on S_n_term is by p**n
+    #followed by %p. 
 	def ghost(self,n):
 		p = self.p
 		output = 0
@@ -55,7 +71,9 @@ class WittVector:
 			if i < n + 1:
 				output = (output + pow(x,(p_pow(p, n-i)),p_pow(p,n+2))*p_pow(p,i)) 
 		return output
-		
+	
+	#almost the same as the ghost homomorphism, but with higher powers of p. Used for the recursive step. Powers of x computed mod p**(n+2) 
+	#to reduce time complexity.	
 	def almost_ghost(self,n):
 		p = self.p
 		output = 0

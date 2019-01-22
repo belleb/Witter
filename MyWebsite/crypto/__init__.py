@@ -138,7 +138,8 @@ def find_prime(s):
         return p
     else:
         return None
-          
+
+#decrypts          
 def decrypt(s,key):
     #deletes spaces at the ends, and tests if the message and key look right
     s, key = s.strip(), key.strip()
