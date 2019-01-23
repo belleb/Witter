@@ -70,7 +70,7 @@ def create_key(size, pre_key_len, salt_len):
     #adapts pre_key to actual key that has the same size as the message
     key = []
     for i in range(size):
-        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(sum(pre_key)%salt_len))
+        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(modified_sum(pre_key))+(sum(pre_key[:(i%pre_key_len)]) % ub_p))
     
     return key, pre_key
     
@@ -88,10 +88,17 @@ def adapt_key(size, pre_key_len, salt_len, key):
     #constructs actual key that has the same size as the message
     key = []
     for i in range(size):
-        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(sum(pre_key)%salt_len))
+        key.append(pre_key[i % pre_key_len]+(i % salt_len)+(modified_sum(pre_key))+(sum(pre_key[:(i%pre_key_len)]) % ub_p))
     
     return key    
-
+    
+#modified sum of elements in pre_key, used to improve cryptography
+def modified_sum(pre_key):
+    output = 0
+    for i in range(len(pre_key)):
+        output+= (i+1)*pre_key[i]
+    return output
+    
 #encrypts whole message. The user can choose to use their own key or receive a random key
 def encrypt(s, key=""):
     if not s:
