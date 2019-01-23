@@ -107,9 +107,10 @@
     
     <section>
     Your encrypted message is here:
-    <div class="display" style = "height: 150px;">
+    <div class="display" style = "height: 150px;" id = "encrypted_message">
     {{ s }}
     </div>
+    <button onclick="copy('encrypted_message')" style = "border-radius:7px; color:#115533;">Copy encrypted message</button>
     </section>
     
     <section>
@@ -138,5 +139,31 @@
     </section>
     </div>
     </div>
+
+
+<script>
+function copy(containerid) {
+if (document.selection) { 
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy"); 
+
+} else if (window.getSelection) {
+    var range = document.createRange();
+     range.selectNode(document.getElementById(containerid));
+     window.getSelection().addRange(range);
+     document.execCommand("copy");
+}}
+
+/*
+function copy() {
+  var copyText = document.getElementById("encrypted_message");
+  copyText.select();
+  document.execCommand("copy");
+}*/
+</script>
+
+
 </body>
 </html>
